@@ -1,0 +1,53 @@
+{
+    "pizzas": [
+      {
+        "id": 1,
+        "name": "Cheese",
+        "image": "images/Cheese Pizza.png",
+        "rating": 4.5,
+        "comment": "Delicious classic cheese pizza!",
+        "ingredients": ["Cheese"]
+      },
+      {
+        "id": 2,
+        "name": "Pepperoni",
+        "image": "images/pepperoni pizza.png",
+        "rating": 4.2,
+        "comment": "Perfectly topped with savory pepperoni slices.",
+        "ingredients": ["Cheese", "Pepperoni"]
+      },
+      {
+        "id": 3,
+        "name": "Meat Lovers",
+        "image": "images/meat lovers pizza.png",
+        "rating": 4.8,
+        "comment": "Loaded with a variety of delicious meats.",
+        "ingredients": ["Cheese", "Pepperoni", "Sausage", "Bacon", "Ham"]
+      },
+      {
+        "id": 4,
+        "name": "Veggie",
+        "image": "images/veggie pizza.png",
+        "rating": 4.4,
+        "comment": "Packed with fresh and flavorful vegetables.",
+        "ingredients": ["Cheese", "Mushrooms", "Bell Peppers", "Onions", "Olives", "Tomatoes"]
+      },
+      {
+        "id": 5,
+        "name": "Vegan",
+        "image": "images/vegan pizza.png",
+        "rating": 4.1,
+        "comment": "A plant-based delight with vegan cheese and veggies.",
+        "ingredients": ["Vegan Cheese", "Mushrooms", "Bell Peppers", "Onions", "Olives", "Tomatoes"]
+      },
+      {
+        "id": 6,
+        "name": "Custom Pizza",
+        "image": "images/custom pizza.png",
+        "rating": 5,
+        "comment": "Literally your favorite thing here",
+        "ingredients": ["Cheese", "Pepperoni", "Sausage", "Mushrooms", "Bell Peppers", "Onions", "Olives", "Tomatoes"]
+      }
+    ]
+  }
+  
