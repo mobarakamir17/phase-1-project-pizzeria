@@ -30,7 +30,7 @@
         "image": "images/veggie pizza.png",
         "rating": 4.4,
         "comment": "Packed with fresh and flavorful vegetables.",
-        "ingredients": ["Cheese", "Mushrooms", "Bell Peppers", "Onions", "Olives", "Tomatoes"]
+        "ingredients": ["Cheese", "Mushrooms", "Bell Peppers", "Onions", "Zucchini", "Grape Tomatoes", "Broccoli", "Eggplant", "Basil"]
       },
       {
         "id": 5,
@@ -38,7 +38,7 @@
         "image": "images/vegan pizza.png",
         "rating": 4.1,
         "comment": "A plant-based delight with vegan cheese and veggies.",
-        "ingredients": ["Vegan Cheese", "Mushrooms", "Bell Peppers", "Onions", "Olives", "Tomatoes"]
+        "ingredients": ["Vegan Cheese", "Mushrooms", "Bell Peppers", "Onions", "Black Olives", "Green Olives"]
       },
       {
         "id": 6,
