@@ -2,25 +2,81 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>Flatiron Pizzaria</title>
-        <link  rel="styleshet" href="style.css"/>
+        <title>Flatiron Pizzeria</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-        <div>
-            <h1>Flatiron Pizzaria</h1>
+        <header>
+            <h1 class="top">Flatiron Pizzeria</h1>
+        </header>
+
+        <div id = "menu">
+            <ul id="pizza-options">
+                <li id="all" class="pizza-list">All</li>
+                <li id="classic" class="pizza-list">Classics</li>
+                <li id="popular" class="pizza-list">Most Popular</li>
+                <li id="new-pizza" class="pizza-list">New</li>
+            </ul>
         </div>
 
-        <div id="pizza-list">
-            <!-- Add pizza images here -->
-        </div>
-
-        <div id="detail-area">
-
-        </div>
-
-        <div id="cart">
+        <div id="pizza-list" class="main-sections">
+            <!-- JS will add pizza images here -->
             
         </div>
-        <script src="index.js"></script>
+        <!-- Use a form to add new custom pizzas?
+            <form>
+            <h4>Create Custom Pizza</h4>
+            <label for="name">Name:</label>
+            <input type="text" name="name"></input>
+            <label for= "ingredient1">Ingredient #1</label>
+            <input type="text" name="ingredient1"></input>
+        </form> -->
+
+        <div id="detail-area" class="main-sections">
+            <img id="detail-image" src="">
+            <h2 id="detail-name">Pizza Name</h2>
+            <div>
+                <h2>Toppings</h2>
+                    <ul id="toppings-list">
+                        <!-- Example:
+                        <li>Cheese</li>
+                        <li>Vegan Cheese</li>
+                        <li>Pepperoni</li>
+                        <li>Sausage</li>
+                        <li>Ham</li>
+                        <li>Bacon</li>
+                        <li>Olives</li> -->
+                    </ul>
+                <h3 id="comments">Comments</h3>
+                <p>
+                    <span id="comments-shown"></span>
+                </p>
+                <p>
+                    Rating: <span id="rating-shown"></span>
+                </p>
+            </div>
+            <p>
+                <button id="remove">Remove</button>
+                <button id="add-to-cart">Add to Cart</button>
+            </p>
+        </div>
+
+        <div id="cart-area" class="top">
+            <h4 id="cart-header">Cart</h4>
+            <ul id="cart-list">
+                <!--Cart items will be added here-->
+            </ul>
+            <p id="total">Total $</p>
+            <button id="clear-cart" type="button">Clear Cart</button> <!--button to clear cart-->
+            <button id="place-order" type="button">Place Order</button><!--button to place order-->
+        </div>
+        
+        <div id="popup-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span><!--for the close symbol (x)-->
+                <p>Antonio is on his way with your pizza!</p>
+            </div>
+        </div>
+        <script src="./index.js"></script>
     </body>
 </html>
