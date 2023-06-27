@@ -1,82 +1,129 @@
 <!-- write code here -->
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Flatiron Pizzeria</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body>
-        <header>
-            <h1 class="top">Flatiron Pizzeria</h1>
-        </header>
+<html lang="en">
+<head>
+  <title>Flatiron Pizzeria</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="top">FLATIRON PIZZERIA</h1>
+  </header>
 
-        <div id = "menu">
-            <ul id="pizza-options">
-                <li id="all" class="pizza-list">All</li>
-                <li id="classic" class="pizza-list">Classics</li>
-                <li id="popular" class="pizza-list">Most Popular</li>
-                <li id="new-pizza" class="pizza-list">New</li>
-            </ul>
-        </div>
+  <nav class="nav-bar">
+    <ul class="nav-menu">
+      <li id="all">
+        <a href="#" class="nav-link">All</a>
+      </li>
+      <li id="classic">
+        <a href="#" class="nav-link">Classic</a>
+      </li>
+      <li id="popular">
+        <a href="#" class="nav-link">Popular</a>
+      </li>
+      <li id="new">
+        <a href="#" class="nav-link">New</a>
+      </li>
+    </ul>
+  </nav>
 
-        <div id="pizza-list" class="main-sections">
-            <!-- JS will add pizza images here -->
-            
-        </div>
-        <!-- Use a form to add new custom pizzas?
-            <form>
-            <h4>Create Custom Pizza</h4>
-            <label for="name">Name:</label>
-            <input type="text" name="name"></input>
-            <label for= "ingredient1">Ingredient #1</label>
-            <input type="text" name="ingredient1"></input>
-        </form> -->
+  <div id="pizza-list" class="main-sections">
+    <!-- JS will add pizza images here -->
+  </div>
 
-        <div id="detail-area" class="main-sections">
-            <img id="detail-image" src="">
-            <h2 id="detail-name">Pizza Name</h2>
-            <div>
-                <h2>Toppings</h2>
-                    <ul id="toppings-list">
-                        <!-- Example:
-                        <li>Cheese</li>
-                        <li>Vegan Cheese</li>
-                        <li>Pepperoni</li>
-                        <li>Sausage</li>
-                        <li>Ham</li>
-                        <li>Bacon</li>
-                        <li>Olives</li> -->
-                    </ul>
-                <h3 id="comments">Comments</h3>
-                <p>
-                    <span id="comments-shown"></span>
-                </p>
-                <p>
-                    Rating: <span id="rating-shown"></span>
-                </p>
-            </div>
-            <p>
-                <button id="remove">Remove</button>
-                <button id="add-to-cart">Add to Cart</button>
-            </p>
-        </div>
+  <div id="detail-area" class="main-sections">
+    <img id="detail-image" src="">
+    <h2 id="detail-name">Pizza Name</h2>
+    <div>
+      <h2>Toppings</h2>
+      <ul id="toppings-list">
+        <!-- JS will populate with toppings of selected pizza -->
+      </ul>
+      <h3 id="comments">Comments</h3>
+      <p>
+        <span id="comments-shown"></span>
+      </p>
+      <h3>
+        Rating: <span id="rating-shown"></span>
+      </h3>
+    </div>
+    <p>
+      <button id="remove">Remove</button>
+      <button id="add-to-cart">Add to Cart</button>
+    </p>
+  </div>
 
-        <div id="cart-area" class="top">
-            <h4 id="cart-header">Cart</h4>
-            <ul id="cart-list">
-                <!--Cart items will be added here-->
-            </ul>
-            <p id="total">Total $</p>
-            <button id="clear-cart" type="button">Clear Cart</button> <!--button to clear cart-->
-            <button id="place-order" type="button">Place Order</button><!--button to place order-->
-        </div>
-        
-        <div id="popup-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span><!--for the close symbol (x)-->
-                <p>Antonio is on his way with your pizza!</p>
-            </div>
-        </div>
-        <script src="./index.js"></script>
-    </body>
+  <style>
+    #create-new label,
+    #create-new input,
+    #create-new textarea {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+
+
+  <form id="create-new">
+    <h4>Create Custom Pizza</h4>
+
+    <label for="new-name">Name:</label>
+    <input type="text" name="name" id="new-name">
+
+    <label for="new-rating">Rating:</label>
+    <input type="number" name="new-rating" id="new-rating" min="0" max="5">
+
+    <label for="new-request">Request:</label>
+    <input type="text" name="new-request" id="new-request">
+
+    <input type="checkbox" name="ingredient1" id="ingredient1" value="Cheese">
+    <label for="ingredient1">Cheese</label>
+
+    <input type="checkbox" name="ingredient2" id="ingredient2" value="Pepperoni">
+    <label for="ingredient2">Pepperoni</label>
+
+    <input type="checkbox" name="ingredient3" id="ingredient3" value="Ham">
+    <label for="ingredient3">Ham</label>
+
+    <input type="checkbox" name="ingredient4" id="ingredient4" value="Sausage">
+    <label for="ingredient4">Sausage</label>
+
+    <input type="checkbox" name="ingredient5" id="ingredient5" value="Bacon">
+    <label for="ingredient5">Bacon</label>
+
+    <input type="checkbox" name="ingredient6" id="ingredient6" value="Olives">
+    <label for="ingredient6">Olives</label>
+
+    <input type="checkbox" name="ingredient7" id="ingredient7" value="Onions">
+    <label for="ingredient7">Onions</label>
+
+    <input type="checkbox" name="ingredient8" id="ingredient8" value="Mushrooms">
+    <label for="ingredient8">Mushrooms</label>
+
+    <input type="checkbox" name="ingredient9" id="ingredient9" value="Bell Peppers">
+    <label for="ingredient9">Bell Peppers</label>
+
+    <input type="submit" value="Create">
+  </form>
+  <div id="cart-area" class="top">
+    <h4 id="cart-header">Cart</h4>
+    <ul id="cart-list">
+      <!-- Cart items will be added here -->
+    </ul>
+    <p id="total">Total $</p>
+          <p id="total">Total $</p>
+      <button id="clear-cart" type="button">Clear Cart</button>
+      <!--button to clear cart-->
+      <button id="place-order" type="button">PLACE ORDER</button>
+      <!--button to place order-->
+    </div>
+
+    <div id="popup-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!--for the close symbol (x)-->
+        <p>Antonio is on his way with your pizza!</p>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>
