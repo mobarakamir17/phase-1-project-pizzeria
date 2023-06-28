@@ -27,11 +27,16 @@
     </ul>
   </nav>
 
-  <div id="pizza-list" class="main-sections">
-    <!-- JS will add pizza images here -->
+  <div>
+    <img src="images/custom pizza.png" id="custom-pizza-button" class="custom-pizza-button">
+    <div>Create Custom Pizza!</div>
+    <div id="pizza-list" class="main-sections">
+      <!-- JS will add imgs here-->
+    </div>
   </div>
 
   <div id="detail-area" class="main-sections">
+    <div id="pic-detail-area">
     <!-- Custom Pizza Form -->
     <form id="create-new">
         <h4>Create Custom Pizza</h4>
@@ -39,8 +44,8 @@
         <label for="new-name">Name:</label>
         <input type="text" name="name" id="new-name">
     
-        <label for="new-rating">Rating:</label>
-        <input type="number" name="new-rating" id="new-rating" min="0" max="5">
+        <!-- <label for="new-rating">Rating:</label>
+        <input type="number" name="new-rating" id="new-rating" min="0" max="5"> -->
     
         <label for="new-request">Request:</label>
         <input type="text" name="new-request" id="new-request">
@@ -48,7 +53,7 @@
         <input type="checkbox" name="ingredient1" id="ingredient1" value="Cheese">
         <label for="ingredient1">Cheese</label>
     
-        <input type="checkbox" name="ingredient2" id="ingredient2" class="pepperoni" value="Pepperoni">
+        <input type="checkbox" name="ingredient2" id="ingredient2" class="pepperoni" value="pepperoni">
         <label for="ingredient2">Pepperoni</label>
     
         <input type="checkbox" name="ingredient3" id="ingredient3" value="Ham">
@@ -76,27 +81,28 @@
       </form>
       
     <div id = "hideable-area">  <!-- Rest of the details area content-->
-    <img id="detail-image" src="">
-    <h2 id="detail-name">Pizza Name</h2>
-    <div>
-      <h2>Toppings</h2>
-      <ul id="toppings-list">
-        <!-- JS will populate with toppings of selected pizza -->
-        <img id="pizza-toppings" src="">
-      </ul>
+      <img id="detail-image" src="">
+      <h2 id="detail-name">Pizza Name</h2>
+      <div>
+        <h2>Toppings</h2>
+        <ul id="toppings-list">
+          <!-- JS will populate with toppings of selected pizza -->
+          <img id="pizza-toppings" src="">
+        </ul>
       
-      <h3 id="comments">Comments</h3>
+        <h3 id="comments">Comments</h3>
+        <p>
+          <span id="comments-shown"></span>
+        </p>
+        <h3>
+          Rating: <span id="rating-shown"></span>
+        </h3>
+      </div>
       <p>
-        <span id="comments-shown"></span>
+        <button id="remove">Remove</button>
+        <button id="add-to-cart">Add to Cart</button>
       </p>
-      <h3>
-        Rating: <span id="rating-shown"></span>
-      </h3>
     </div>
-    <p>
-      <button id="remove">Remove</button>
-      <button id="add-to-cart">Add to Cart</button>
-    </p>
     </div>
   </div>
 
@@ -129,10 +135,6 @@
     </div>
   </div>
   <script src="./index.js"></script>
-
-  <!-- <img id="Cheese Pizza" src="images/Cheese Pizza.png" alt="Click me"> -->
-<!-- <p id="hiddenText" class="hidden">This text will be hidden initially.</p> -->
-
 
 </body>
 </html>
