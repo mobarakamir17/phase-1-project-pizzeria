@@ -35,11 +35,16 @@ img:hover {
   align-items: center;
 }
 
+#pizza-list > div{
+  float: left;
+}
+
 #detail-area{
   border-style: solid;
   border-width: 5px;
   border-color: white;
   width: 30%;
+  /* height: 500px; */
   position: absolute;
   left: 40%;
   top: auto;
@@ -47,27 +52,12 @@ img:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: flex-start;
 }
 
-/* #detail-area h2 {
+#hideable-area {
   display: none;
 }
-
-#detail-area h3 {
-  display: none;
-}
-#detail-area p {
-  display: none;
-}
-
-#detail-area img {
-  display: none;
-} */
-
-
-
-
 
 div.main-sections{
   float: left;
@@ -77,11 +67,11 @@ div.main-sections{
 #cart-area {
   background-color: white;
   width: 20%;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -175,6 +165,8 @@ div.main-sections{
 
 /* for the filter menu */
 .nav-menu {
+
+
   list-style: none;
   display: flex;
   justify-content: flex-start;

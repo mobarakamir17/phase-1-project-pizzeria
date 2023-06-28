@@ -1,9 +1,12 @@
 // <-- write code here -->
 let currentPizza;
 let cartItemsMap = {}; // Map to track the quantity of each item in the cart
+let currentRunningTotal = 0; // Use to display total $ amount on screen?  Still working on this, see updateTotal function
 
 // Left hand side list of pizza pictures
 const pizzaList = document.getElementById("pizza-list")
+// const image = document.getElementById("Cheese Pizza")
+// const hiddenText = document.getElementById("hiddenText")
 // Detail elements in center of page
 const currentPizzaImage = document.getElementById("detail-image")
 const detailName = document.getElementById("detail-name")
@@ -32,8 +35,15 @@ const newName = document.getElementById("new-name")
 const newIng1 = document.getElementById("ingredient1")
 const newIng2 = document.getElementById("ingredient2")
 const newIng3 = document.getElementById("ingredient3")
+const newIng4 = document.getElementById("ingredient4")
+const newIng5 = document.getElementById("ingredient5")
+const newIng6 = document.getElementById("ingredient6")
+const newIng7 = document.getElementById("ingredient7")
+const newIng8 = document.getElementById("ingredient8")
+const newIng9 = document.getElementById("ingredient9")
 const newRating = document.getElementById("new-rating")
 const newRequest = document.getElementById("new-request")
+
 
 
 fetch("http://localhost:3000/pizzas")
@@ -45,6 +55,7 @@ fetch("http://localhost:3000/pizzas")
   addPizzaToCart();
   clearCart();
   createCustomPizza();
+  displayPizzaToppings()
   displayPizzaClassics(data);
   displayPizzaPopulars(data);
   displayPizzaNews(data);
@@ -62,13 +73,6 @@ function displayPizzaDetails(){
   shownComment.textContent = currentPizza.comment;
   ratingShown.textContent = currentPizza.rating; 
 }
-
-function toggleDetails() {
-    var headers = document.querySelectorAll("#myDetails h3");
-    headers.forEach(function(header) {
-      header.style.display = "block";
-    });
-  }
 
 function addPizzaToList(pizza){
   const img = document.createElement("img")
@@ -92,6 +96,9 @@ function addPizzaToList(pizza){
     })
     shownComment.textContent = currentPizza.comment; // display the comment
     ratingShown.textContent = currentPizza.rating; // display the rating
+    const headers = document.getElementById("hideable-area");
+    headers.style.display = "block";
+    createNewPizzaForm.style.display = "none"
   });
 
   // If statement to add a delete button if pizza is a custom pizza
@@ -144,7 +151,7 @@ function addPizzaToCart() {
     newItem.dataset.name = itemName;
     cartList.append(newItem);
   
-    updateTotal();
+    updateTotal("add");
   });
 }
 
@@ -157,22 +164,51 @@ function clearCart() {
   });
 }
 
-function updateTotal() {
-  let total = 0;
+function updateTotal(addOrSub) {
+  // The addOrSub parameter is only passed if you want the action to add ("add" parameter) to the total of subtract ("sub" parameter) from it.  If you want to clear the total, leave blank.
+  let totalItems = 0;
   Object.entries(cartItemsMap).forEach(([itemName, quantity]) => {
-    total += quantity;
+    totalItems += quantity;
   });
-  
-  if (total > 0) {
-    const randomTotal = Math.floor(Math.random() * total * 100);
-    totalElement.textContent = "Total $" + randomTotal;
+
+  const randomNumber = Math.floor(Math.random() * totalItems * 100); // Generates a random number for the below if stament to use.  Currently the numbers max size is based on how many items are in the cart(ie. totalItems in this function)
+
+  if (totalItems > 0 && addOrSub === "add") {
+    console.log("run add: " + currentRunningTotal)
+    console.log("random number: " + randomNumber)
+    currentRunningTotal += randomNumber;
+    totalElement.textContent = "Total $" + currentRunningTotal;
+
+  } else if(totalItems > 0 && addOrSub === "sub"){
+    console.log("run sub: " + currentRunningTotal)
+    console.log("random number: " + randomNumber)
+    currentRunningTotal -= randomNumber;
+    currentRunningTotal = Math.max(currentRunningTotal, 10); // Insures the number can not be negative.  Currently set to not go below 10
+    totalElement.textContent = "Total $" + currentRunningTotal;
+    
   } else {
+    console.log("run else: " + currentRunningTotal)
     totalElement.textContent = "Total $0";
+    currentRunningTotal = 0;
   }
 }
 
 function createCustomPizza(){
-  createNewPizzaForm.addEventListener("submit", (e) => {
+  const customPizzaImage = document.createElement("img");
+  customPizzaImage.src = "images/custom pizza.png";
+  customPizzaImage.classList.add("custom-pizza-button");
+  document.body.appendChild(customPizzaImage);
+    
+    customPizzaImage.addEventListener("click", () => {
+        createNewPizzaForm.style.display = "block"
+            // Reset the pizza details
+            const headers = document.getElementById("hideable-area");
+            headers.style.display = "none";
+            createNewPizzaForm.style.display = "visible"
+          });
+    };
+    
+    createNewPizzaForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const newPizza = {
       "name": newName.value,
@@ -182,12 +218,21 @@ function createCustomPizza(){
       "request": newRequest.value,
       "ingredients": []
     }
-      
+    
     if(ingredient1.checked){newPizza.ingredients.push(ingredient1.value)}
     if(ingredient2.checked){newPizza.ingredients.push(ingredient2.value)}
     if(ingredient3.checked){newPizza.ingredients.push(ingredient3.value)}
-   
-    // let pizzaIngCheese = document.createElement("img")
+    if(ingredient4.checked){newPizza.ingredients.push(ingredient4.value)}
+    if(ingredient5.checked){newPizza.ingredients.push(ingredient5.value)}
+    if(ingredient6.checked){newPizza.ingredients.push(ingredient6.value)}
+    if(ingredient7.checked){newPizza.ingredients.push(ingredient7.value)}
+    if(ingredient8.checked){newPizza.ingredients.push(ingredient8.value)}
+    if(ingredient9.checked){newPizza.ingredients.push(ingredient9.value)}
+     
+    document.addEventListener("DOMContentLoaded", function() {
+        createCustomPizza();
+    });
+
     
     fetch("http://localhost:3000/pizzas",{
       method: "POST",
@@ -204,18 +249,40 @@ function createCustomPizza(){
       createNewPizzaForm.reset();
     })
     .catch(err => console.log("Caught Post" + err))
-  })
+})
+
+// Function to hide headers until an image is clicked
+function toggleDetails() {
+  const headers = document.getElementById("hideable-area");
+
+  currentPizzaImage.addEventListener("click", function () {
+        headers.style.display = "block";
+  });
 }
+  
+  
+
+// Add an event listener to the image
+currentPizzaImage.addEventListener("click", function() {
+  // Toggle the display property of the headers
+  headers.forEach(function(header) {
+    if (header.style.display === "none") {
+      header.style.display = "block";
+    } else {
+      header.style.display = "none";
+    }
+  });
+});
 
 placeOrderButton.addEventListener("click", () => {
-    // Clear the cart contents
-    cartList.innerHTML = "";
-    cartItemsMap = {}; // clear the cart items map
+  // Clear the cart contents
+  cartList.innerHTML = "";
+  cartItemsMap = {}; // clear the cart items map
   
-    updateTotal();
-    //display the popup modal
-    popupModal.style.display = "block";
-  });
+  updateTotal();
+  //display the popup modal
+  popupModal.style.display = "block";
+});
 
 
 closeModalButton.addEventListener("click", () => {
@@ -231,24 +298,37 @@ window.addEventListener ("click", (event) => {
 });
 
 removeButton.addEventListener("click", () => {
-    const pizzaName = detailName.textContent;
-    const cartItems = Array.from(cartList.children);
-    const pizzaToRemove = cartItems.find((item) => item.textContent.includes(pizzaName));
+  const pizzaName = detailName.textContent;
+  const cartItems = Array.from(cartList.children);
+  const pizzaToRemove = cartItems.find((item) => item.textContent.includes(pizzaName));
     
-    if (pizzaToRemove) {
-      const pizzaCount = pizzaToRemove.textContent.match(/\d+/);
-      if (pizzaCount && pizzaCount[0] > 1) {
-        pizzaToRemove.textContent = pizzaToRemove.textContent.replace(pizzaCount[0], pizzaCount[0] - 1);
-        cartItemsMap[pizzaName]--; // Decrement the quantity in the cartItemsMap
-      } else {
-        cartList.removeChild(pizzaToRemove);
-        delete cartItemsMap[pizzaName]; // Remove the item from the cartItemsMap
-      }
-      
-      updateTotal();
+  if (pizzaToRemove) {
+    const pizzaCount = pizzaToRemove.textContent.match(/\d+/);
+    if (pizzaCount && pizzaCount[0] > 1) {
+      pizzaToRemove.textContent = pizzaToRemove.textContent.replace(pizzaCount[0], pizzaCount[0] - 1);
+      cartItemsMap[pizzaName]--; // Decrement the quantity in the cartItemsMap
+    } else {
+      cartList.removeChild(pizzaToRemove);
+      delete cartItemsMap[pizzaName]; // Remove the item from the cartItemsMap
     }
-  });
+      
+    updateTotal("sub");
+  }
+});
   
+const displayPizzaToppings = () => {
+  // show topping pic when checkbox clicked
+  // newIng2.image = querySelector(".pepperoni")
+    let toppingPic = document.createElement('img')
+    toppingPic.src = 'images/pepperoni.png'
+    newIng2.append(toppingPic)
+    newIng2.addEventListener("click", (e) => {
+      console.log('ive been clicked')
+  })
+}
+
+
+
 
 function displayPizzaClassics(pizzaData) {
   pizzaClassic.addEventListener("click", () => {
