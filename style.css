@@ -2,6 +2,7 @@
 
 html, body {
   background-color: #01ade2;
+  /* cursor: url('images/cutter.PNG'), auto; */
 }
 
 header {
@@ -23,7 +24,31 @@ h1.top {
 img{
   width: 100px;
   height: 100px;
+  margin-right: 10px;
+  padding-bottom: 10px;
 }
+
+#base-pizza-div{
+  display: flex;
+  justify-content: center;
+}
+
+#base-pizza {
+  position: relative;
+  top: 10px;
+  height: 120px;
+  width: 120px;
+}
+
+
+.top-toppings {
+  position: absolute;
+  top: 42px;
+  /* height: 70px;
+  width: 70px; */
+  z-index: 2;
+} 
+
 
 img:hover {
   cursor: pointer;
@@ -32,11 +57,19 @@ img:hover {
 #pizza-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; 
+  margin-top: 20px;
+  width: 100%; 
+  cursor: pointer;
+}
+.white-text {
+  color: white;
+  font-family: "open sans", serif;
+  font-size: 1.5rem;
 }
 
-#pizza-list > div{
-  float: left;
+.delete {
+  color: pink;
 }
 
 #detail-area{
@@ -44,21 +77,33 @@ img:hover {
   border-width: 5px;
   border-color: white;
   width: 30%;
-  /* height: 500px; */
   position: absolute;
   left: 40%;
   top: auto;
   bottom: auto;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  background-color:#0079BF;
 }
+
 
 #hideable-area {
   display: none;
+  text-align: center;
 }
 
+#detail-image {
+  margin-bottom: 20px; /* Added spacing below the image */
+}
+
+#remove,
+#add-to-cart {
+  margin-top: 20px; /* Added spacing above the buttons */
+}
+ 
 div.main-sections{
   float: left;
   margin-right: 20px;
@@ -89,6 +134,26 @@ div.main-sections{
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
 }
+
+#cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  color: white;
+  background-color: #01ade2;
+  border: none;
+  padding: 10px;
+  width: 85%;
+  text-align: center;
+  margin-bottom: 5px; /* Add a margin bottom to create spacing between cart items */
+}
+
+/* .cart-item:last-child {
+  margin-bottom: 0;
+} */
 
 #place-order {
   color: black;
@@ -163,6 +228,17 @@ div.main-sections{
   cursor: pointer;
 }
 
+.rating-star {
+  display: inline-block;
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.rating-star.filled {
+  color: gold;
+}
+
 /* for the filter menu */
 .nav-menu {
 
@@ -190,6 +266,25 @@ div.main-sections{
   text-decoration: underline
 }
 
-.nav-link:hover{
+/* Add back in if we remove the JS that does the same job*/
+/* .nav-link:hover{
   color: red;
+}  */
+
+#custom-pizza-button{
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#pizza-image{
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+  float: left;
+  width: 20px;
+}
+input[type='checkbox'] + label {
+  display: block;
+  width: 30px;
 }

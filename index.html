@@ -21,16 +21,16 @@
       <li id="popular">
         <a href="#" class="nav-link">Popular</a>
       </li>
-      <li id="new">
-        <a href="#" class="nav-link">New</a>
+      <li id="custom-made">
+        <a href="#" class="nav-link">Custom Creations</a>
       </li>
     </ul>
   </nav>
 
   <div class="main-sections" id="full-pizza-list">
     <div id="pizza-list-top">
-      <img src="images/custom pizza.png" id="custom-pizza-button" class="custom-pizza-button">
-      Create Custom Pizza!
+      <img src="./images/pizza dough and sauce.png" id="custom-pizza-button" class="custom-pizza-button">
+      <span style="color: white; font-family: 'Open Sans', serif; font-size: 1.5rem;">Create Your Own Custom Pizza!</span>
     </div>
     <div id="pizza-list" class="main-sections">
       <!-- JS will add imgs here-->
@@ -40,8 +40,11 @@
   <div id="detail-area" class="main-sections">
     <div id="pic-detail-area">
     <!-- Custom Pizza Form -->
-    <form id="create-new">
-        <img src="/images/custom pizza template.png" id="base-pizza">
+      <form id="create-new">
+        <div id="base-pizza-div">
+          <img src="./images/pizza dough and sauce.png" id="base-pizza">
+        </div>
+        
         <h4>Create Custom Pizza</h4>
     
         <label for="new-name">Name:</label>
@@ -54,33 +57,39 @@
         <input type="text" name="new-request" id="new-request">
     
         <input type="checkbox" name="ingredient1" id="ingredient1" class="toppingsIng" value="Cheese">
+        <img src="./images/cheese.PNG" id="cheese-topping" class="top-toppings">
         <label for="ingredient1">Cheese</label>
     
-        <input type="checkbox" name="ingredient2" id="pepperoni" class="toppingsIng" value="pepperoni">
-        <img src="/images/pepperoni top.png" id="pepp-topping">
+        <input type="checkbox" name="ingredient2" id="ingredient2" class="toppingsIng" value="Pepperoni">
+        <img src="./images/pepperoni top.png" id="pepp-topping" class="top-toppings">
         <label for="ingredient2">Pepperoni</label>
     
-        <input type="checkbox" name="ingredient3" id="Ham" class="toppingsIng" value="Ham">
+        <input type="checkbox" name="ingredient3" id="ingredient3" class="toppingsIng" value="Ham">
+        <img src="./images/ham .PNG" id="ham-topping" class="top-toppings">
         <label for="ingredient3">Ham</label>
     
-        <input type="checkbox" name="ingredient4" id="Sausage" class="toppingsIng" value="Sausage">
-        <label for="ingredient4">Sausage</label>
+        <input type="checkbox" name="ingredient4" id="ingredient4" class="toppingsIng" value="Pineapple">
+        <img src="./images/pineapple.png" id="pineapple-topping" class="top-toppings">
+        <label for="ingredient4">Pineapple</label>
     
         <input type="checkbox" name="ingredient5" id="ingredient5" class="toppingsIng" value="Bacon">
+        <img src="./images/bacon.PNG" id="bacon-topping" class="top-toppings">
         <label for="ingredient5">Bacon</label>
     
         <input type="checkbox" name="ingredient6" id="ingredient6" class="toppingsIng" value="Olives">
+        <img src="./images/pile of olives.PNG" id="olive-topping" class="top-toppings">
         <label for="ingredient6">Olives</label>
     
         <input type="checkbox" name="ingredient7" id="ingredient7" class="toppingsIng" value="Onions">
-        <img src="/images/red onion top.png" id="onion-topping">
+        <img src="./images/red onion top.png" id="onion-topping" class="top-toppings">
         <label for="ingredient7">Onions</label>
     
         <input type="checkbox" name="ingredient8" id="ingredient8" class="toppingsIng" value="Mushrooms">
-        <img src="/images/mushroom top.png" id="mushroom-topping">
+        <img src="./images/mushroom top.png" id="mushroom-topping" class="top-toppings">
         <label for="ingredient8">Mushrooms</label>
     
         <input type="checkbox" name="ingredient9" id="ingredient9" class="toppingsIng" value="Bell Peppers">
+        <img src="./images/bell pepper.PNG" id="bell-pepper-topping" class="top-toppings">
         <label for="ingredient9">Bell Peppers</label>
     
         <input type="submit" value="Create">
@@ -93,7 +102,7 @@
         <h2>Toppings</h2>
         <ul id="toppings-list">
           <!-- JS will populate with toppings of selected pizza -->
-          <img id="pizza-toppings" src="">
+          <!-- <img id="pizza-toppings" src=""> -->
         </ul>
       
         <h3 id="comments">Comments</h3>
@@ -125,6 +134,9 @@
     <h4 id="cart-header">Cart</h4>
     <ul id="cart-list">
       <!-- Cart items will be added here -->
+      <!-- <li class="cart-item">Item 1</li>
+      <li class="cart-item">Item 2</li>
+      <li class="cart-item">Item 3</li>     -->
     </ul>
     <p id="total">Total $</p>
     <button id="clear-cart" type="button">Clear Cart</button>

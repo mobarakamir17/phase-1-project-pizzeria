@@ -60,7 +60,7 @@
     {
       "id": 5,
       "name": "Vegan Pizza",
-      "type": "New",
+      "type": "Popular",
       "image": "images/vegan pizza.png",
       "rating": 4.1,
       "comment": "A plant-based delight with vegan cheese and veggies.",
@@ -72,6 +72,21 @@
         "Black Olives",
         "Green Olives"
       ]
+    },
+    {
+      "name": "beef pizza",
+      "type": "Custom",
+      "image": "https://res.cloudinary.com/practicaldev/image/fetch/s--MugTjLP8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7rbgc67we2nblq3od5ih.png",
+      "request": "clean cutter",
+      "ingredients": [
+        "Cheese",
+        "Pepperoni",
+        "Ham",
+        "Onions",
+        "Mushrooms",
+        "Bell Peppers"
+      ],
+      "id": 6
     }
   ]
 }
