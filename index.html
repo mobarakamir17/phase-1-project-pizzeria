@@ -27,9 +27,11 @@
     </ul>
   </nav>
 
-  <div>
-    <img src="images/custom pizza.png" id="custom-pizza-button" class="custom-pizza-button">
-    <div>Create Custom Pizza!</div>
+  <div class="main-sections" id="full-pizza-list">
+    <div id="pizza-list-top">
+      <img src="images/custom pizza.png" id="custom-pizza-button" class="custom-pizza-button">
+      Create Custom Pizza!
+    </div>
     <div id="pizza-list" class="main-sections">
       <!-- JS will add imgs here-->
     </div>
@@ -39,6 +41,7 @@
     <div id="pic-detail-area">
     <!-- Custom Pizza Form -->
     <form id="create-new">
+        <img src="/images/custom pizza template.png" id="base-pizza">
         <h4>Create Custom Pizza</h4>
     
         <label for="new-name">Name:</label>
@@ -50,31 +53,34 @@
         <label for="new-request">Request:</label>
         <input type="text" name="new-request" id="new-request">
     
-        <input type="checkbox" name="ingredient1" id="ingredient1" value="Cheese">
+        <input type="checkbox" name="ingredient1" id="ingredient1" class="toppingsIng" value="Cheese">
         <label for="ingredient1">Cheese</label>
     
-        <input type="checkbox" name="ingredient2" id="ingredient2" class="pepperoni" value="pepperoni">
+        <input type="checkbox" name="ingredient2" id="pepperoni" class="toppingsIng" value="pepperoni">
+        <img src="/images/pepperoni top.png" id="pepp-topping">
         <label for="ingredient2">Pepperoni</label>
     
-        <input type="checkbox" name="ingredient3" id="ingredient3" value="Ham">
+        <input type="checkbox" name="ingredient3" id="Ham" class="toppingsIng" value="Ham">
         <label for="ingredient3">Ham</label>
     
-        <input type="checkbox" name="ingredient4" id="ingredient4" value="Sausage">
+        <input type="checkbox" name="ingredient4" id="Sausage" class="toppingsIng" value="Sausage">
         <label for="ingredient4">Sausage</label>
     
-        <input type="checkbox" name="ingredient5" id="ingredient5" value="Bacon">
+        <input type="checkbox" name="ingredient5" id="ingredient5" class="toppingsIng" value="Bacon">
         <label for="ingredient5">Bacon</label>
     
-        <input type="checkbox" name="ingredient6" id="ingredient6" value="Olives">
+        <input type="checkbox" name="ingredient6" id="ingredient6" class="toppingsIng" value="Olives">
         <label for="ingredient6">Olives</label>
     
-        <input type="checkbox" name="ingredient7" id="ingredient7" value="Onions">
+        <input type="checkbox" name="ingredient7" id="ingredient7" class="toppingsIng" value="Onions">
+        <img src="/images/red onion top.png" id="onion-topping">
         <label for="ingredient7">Onions</label>
     
-        <input type="checkbox" name="ingredient8" id="ingredient8" value="Mushrooms">
+        <input type="checkbox" name="ingredient8" id="ingredient8" class="toppingsIng" value="Mushrooms">
+        <img src="/images/mushroom top.png" id="mushroom-topping">
         <label for="ingredient8">Mushrooms</label>
     
-        <input type="checkbox" name="ingredient9" id="ingredient9" value="Bell Peppers">
+        <input type="checkbox" name="ingredient9" id="ingredient9" class="toppingsIng" value="Bell Peppers">
         <label for="ingredient9">Bell Peppers</label>
     
         <input type="submit" value="Create">
@@ -130,10 +136,19 @@
   <div id="popup-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <!--for the close symbol (x)-->
       <p>Antonio is on his way with your pizza!</p>
+      <div id="rating-container">
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+      </div>
+      <button id="submit-rating-button">Rate your Experience</button>
     </div>
   </div>
+  
+   
   <script src="./index.js"></script>
 
 </body>
