@@ -2,7 +2,7 @@
 
 html, body {
   background-color: #01ade2;
-  /* cursor: url('images/cutter.PNG'), auto; */
+  /* cursor: url() */
 }
 
 header {
@@ -14,7 +14,7 @@ header {
 
 h1.top {
   color: white;
-  font-family: "Open Sans", serif;
+  font-family: Verdana;
   font-size: 2.5rem;
   line-height: 1;
   margin-bottom: 5px;
@@ -44,8 +44,6 @@ img{
 .top-toppings {
   position: absolute;
   top: 42px;
-  /* height: 70px;
-  width: 70px; */
   z-index: 2;
 } 
 
@@ -64,16 +62,40 @@ img:hover {
 }
 .white-text {
   color: white;
-  font-family: "open sans", serif;
+  font-family: Verdana;
   font-size: 1.5rem;
 }
 
-.delete {
-  color: pink;
+.delete-button-cust {
+  position: absolute;
+  padding-top: 60px;
+  margin-top: 30px;
+  border: 3px solid;
+  background-color: red;
+  margin-left: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: Verdana;
+  font-weight: bold;
 }
+
+.delete-button-cust {
+  border-color: #f44336;
+  color: white;
+}
+
+.delete-button-cust:hover {
+  background: #ff685d;
+  color: white;
+}
+
 
 #detail-area{
   border-style: solid;
+  border-radius: 30px;
   border-width: 5px;
   border-color: white;
   width: 30%;
@@ -86,7 +108,7 @@ img:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#0079BF;
+  background-color:#005c92;
 }
 
 
@@ -107,6 +129,9 @@ img:hover {
 div.main-sections{
   float: left;
   margin-right: 20px;
+  color: white;
+  font-family: Verdana;
+
 }
 /* cart area styling */
 #cart-area {
@@ -132,7 +157,7 @@ div.main-sections{
   background-color: white;
   width: 55%;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Verdana;
 }
 
 #cart-list {
@@ -151,18 +176,14 @@ div.main-sections{
   margin-bottom: 5px; /* Add a margin bottom to create spacing between cart items */
 }
 
-/* .cart-item:last-child {
-  margin-bottom: 0;
-} */
-
 #place-order {
-  color: black;
+  color: white;
   background-color: #01ade2;
-  border: 2px solid black;
+  border: 4px solid #005c92;
   padding: 30px;
   margin: 20px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Verdana;
   width: 80%;
   font-size: large;
   position: relative;
@@ -181,9 +202,9 @@ div.main-sections{
 }
 
 #clear-cart {
-  color: black;
+  color: white;
   background-color: #01ade2;
-  border: 2px solid black;
+  border: 2px solid 005c92;
   padding: 10px;
   font-weight: bold;
   position: absolute;
@@ -241,6 +262,7 @@ div.main-sections{
 
 /* for the filter menu */
 .nav-menu {
+  font-family: Verdana;
 
 
   list-style: none;
@@ -248,6 +270,7 @@ div.main-sections{
   justify-content: flex-start;
   margin: 0;
   padding: 20px;
+  padding-bottom: 50px;
 }
 
 .nav-menu li {
@@ -265,11 +288,6 @@ div.main-sections{
   font-size: 20px;
   text-decoration: underline
 }
-
-/* Add back in if we remove the JS that does the same job*/
-/* .nav-link:hover{
-  color: red;
-}  */
 
 #custom-pizza-button{
   vertical-align: middle;

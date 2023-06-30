@@ -15,7 +15,7 @@ Open the `index.html` file on your browser to run the application
 
 As a user, you can enjoy the following features in Pizzeria:
 
-1. View Pizza Choices: On the http://localhost:3000/pizzas page, you will find a list of available pizzas. Each pizza is accompanied by an image.
+1. View Pizza Choices: On the [http://localhost:3000/characters/pizzas](http://localhost:3000/pizzas) page, you will find a list of available pizzas. Each pizza is accompanied by an image.
 
 2. Pizza Details: When the page loads, you will see images and names of the pizza choices. By clicking on a pizza image in the left navigation menu, the detail area will populate with the pizza's name, ingredients, comments, and rating.
 
